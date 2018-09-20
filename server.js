@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
@@ -19,6 +20,10 @@ mongoose
 
 const port = process.env.PORT || 5000;
 const app = express();
+
+//Configure bodyParser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.send("Helloworld, devconnect"));
 
