@@ -219,6 +219,8 @@ router.post(
         current: req.body.current,
         fieldofstudy: req.body.fieldofstudy,
         description: req.body.description
+
+        // const {school, degree, from, to, current, fieldofstudy, description} = req.body
       };
       //Add to experience array
       profile.education.unshift(newEdu);
