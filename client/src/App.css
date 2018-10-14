@@ -41,3 +41,8 @@ img {
 .main {
   margin-top: 30vh;
 }
+
+.register,
+.login {
+  margin-top: 10vh;
+}
