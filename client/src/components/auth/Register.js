@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import axios from "axios";
 import PropTypes from "prop-types";
 import "../../App.css";
 import classnames from "classnames";
@@ -22,6 +21,14 @@ class Register extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -35,15 +42,11 @@ class Register extends Component {
     };
 
     this.props.registerUser(newUser);
-    // axios
-    //   .post("/api/users/register", newUser)
-    //   .then(res => console.log(res.data))
-    //   .catch(err => this.setState({ errors: err.response.data }));
   }
 
   render() {
     const { errors } = this.state;
-    // const { user } = this.props.auth;
+
     return (
       <div className="register">
         <div className="container">
@@ -130,12 +133,14 @@ class Register extends Component {
 
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth
+    auth: state.auth,
+    errors: state.errors
   };
 };
 
