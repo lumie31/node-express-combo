@@ -43,6 +43,7 @@ img {
 }
 
 .register,
-.login {
+.login,
+.dashboard {
   margin-top: 10vh;
 }
