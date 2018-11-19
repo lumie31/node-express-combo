@@ -70,7 +70,11 @@ class AddExperience extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <Link to="/dashboard" className="btn btn-light">
+              <Link
+                style={{ marginTop: "10vh" }}
+                to="/dashboard"
+                className="btn btn-light"
+              >
                 Go back
               </Link>
               <h1 className="display-4 text-center">Add Experience</h1>
