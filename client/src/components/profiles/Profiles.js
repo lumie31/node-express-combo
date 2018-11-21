@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getProfiles } from "../../actions/profileActions";
 import Spinner from "../common/Spinner";
+import ProfileItem from "./ProfileItem";
 
 class Profiles extends Component {
   componentDidMount() {
@@ -17,7 +18,9 @@ class Profiles extends Component {
       profileItems = <Spinner />;
     } else {
       if (profiles.length > 0) {
-        profileItems = <h1>Profiles here</h1>;
+        profileItems = profiles.map(profile => (
+          <ProfileItem profile={profile} key={profile._id} />
+        ));
       } else {
         profileItems = <h4>No profiles found...</h4>;
       }
