@@ -16,21 +16,35 @@ class PostForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange(e) {
-    this.this.setState({
+    this.setState({
       [e.target.name]: [e.target.value]
     });
   }
 
   onSubmit(e) {
     e.preventDefault();
-    console.log("submitted");
+    const { user } = this.props.auth;
+
+    const newPost = {
+      text: this.state.text,
+      name: user.name,
+      avatar: user.avatar
+    };
+    this.props.addPost(newPost);
+    this.setState({ text: "" });
   }
 
   render() {
     const { errors } = this.state;
     return (
-      <div className="post-form mb-3">
+      <div style={{ marginTop: "10vh" }} className="post-form mb-3">
         <div className="card card-info">
           <div className="card-header bg-info text-white">Say Something...</div>
           <div className="card-body">
