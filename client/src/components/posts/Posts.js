@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+// import { connect } from "react-redux";
+// import PropTypes from "prop-types";
 import PostForm from "./PostForm";
-import Spinner from "../common/Spinner";
+// import Spinner from "../common/Spinner";
 
 class Posts extends Component {
   render() {
