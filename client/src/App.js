@@ -16,6 +16,7 @@ import EditProfile from "./components/edit-profile/EditProfile";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 import Posts from "./components/posts/Posts";
+import NotFound from "./components/not-found/NotFound";
 
 import PrivateRoute from "./components/common/PrivateRoute";
 
@@ -23,7 +24,6 @@ import "./App.css";
 import { clearCurrentProfile } from "./actions/profileActions";
 import AddExperience from "./components/add-credentials/AddExperience";
 import AddEducation from "./components/add-credentials/AddEducation";
-import NotFound from "./components/not-found/NotFound";
 
 //Check for token
 if (localStorage.jwtToken) {

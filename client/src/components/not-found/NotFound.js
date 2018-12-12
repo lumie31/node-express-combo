@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function NotFound() {
+export default () => {
   return (
-    <div>
+    <div style={{ marginTop: "80vh" }}>
       <h1 className="display-4">Page Not Found</h1>
       <p>Sorry, this page does not exist</p>
     </div>
   );
-}
+};
