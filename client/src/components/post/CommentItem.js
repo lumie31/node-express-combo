@@ -4,6 +4,10 @@ import PropTypes from "prop-types";
 import { deleteComment } from "../../actions/postActions";
 
 class CommentItem extends Component {
+  onDeleteClick(postId, commentId) {
+    this.props.deleteComment(postId, commentId);
+  }
+
   render() {
     const { comment, postId, auth } = this.props;
     return (
@@ -22,6 +26,15 @@ class CommentItem extends Component {
           </div>
           <div className="col-md-10">
             <p className="lead">{comment.text}</p>
+            {comment.user === auth.user.id ? (
+              <button
+                onClick={this.onDeleteClick.bind(this, postId, comment._id)}
+                type="button"
+                className="btn btn-danger mr-1"
+              >
+                <i className="fas fa-times" />
+              </button>
+            ) : null}
           </div>
         </div>
       </div>
